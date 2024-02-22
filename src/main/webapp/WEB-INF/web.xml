@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element>
+    <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://java.sun.com/xml/ns/javaee"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_4_0.xsd"
+             id="WebApp_ID" version="4.0">
+        <display-name>LoginApplication</display-name>
+        <servlet>
+            <servlet-name>abc</servlet-name>
+            <servlet-class>com.RegistrationServlet</servlet-class>
+        </servlet>
+        <!-- JSTL Configuration -->
+        <listener>
+            <listener-class>org.apache.jasper.servlet.JasperInitializer</listener-class>
+        </listener>
+        <jsp-config>
+            <taglib>
+                <taglib-uri>http://java.sun.com/jsp/jstl/core</taglib-uri>
+                <taglib-location>/WEB-INF/lib/jstl-1.2.jar</taglib-location>
+            </taglib>
+        </jsp-config>
+        <servlet>
+            <servlet-name>RegistrationServlet</servlet-name>
+            <servlet-class>com.RegistrationServlet</servlet-class>
+            <multipart-config>
+                <max-file-size>1048576</max-file-size> <!-- Maximum file size in bytes -->
+                <max-request-size>2097152</max-request-size> <!-- Maximum request size in bytes -->
+                <file-size-threshold>0</file-size-threshold> <!-- Size threshold after which files will be written to disk -->
+            </multipart-config>
+        </servlet>
+        <servlet>
+            <servlet-name>SetPasswordServlet</servlet-name>
+            <servlet-class>com.SetPasswordServlet</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>SetPasswordServlet</servlet-name>
+            <url-pattern>/SetPasswordServlet</url-pattern>
+        </servlet-mapping>
+        <servlet>
+            <servlet-name>UserListServlet</servlet-name>
+            <servlet-class>com.UserListServlet</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>UserListServlet</servlet-name>
+            <url-pattern>/UserListServlet</url-pattern>
+        </servlet-mapping>
+    </web-app>
+</element>
